@@ -1,0 +1,63 @@
+<!--
+* form is a directive
+* The form directive creates a $scope and populates it with an element with the same name as the form name
+* novalidate
+* required
+* type=email
+
+* ng-disabled="$invalid"
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scope</title>
+  <script src="angular.js"></script>
+  <script src="demo.js"></script>
+  <style>
+    input.ng-dirty.ng-invalid {background:pink;}
+    input.ng-dirty.ng-valid {background:green;}
+  </style>
+</head>
+<body ng-app="app">
+
+  <form name="loginForm" ng-controller="formController" >
+    <input name="email" type='email' ng-model="email" always-invalid />
+    <br />
+    <input name="password" required ng-model="password" must-match='password_confirmation' />
+    <br />
+    <input name="password" required ng-model="password_confirmation" must-match='password' />
+    <br />
+    <input type="submit" ng-click='submit()'  />
+
+    <pre>{{loginForm | json}}</pre>
+  </form>
+
+</body>
+</html>
+
+
+
+<!-- Initial State -->
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scope</title>
+  <script src="angular.js"></script>
+  <script src="demo.js"></script>
+  <style>
+    /*input.ng-dirty.ng-invalid {background:pink;}
+    input.ng-dirty.ng-valid {background:green;}*/
+  </style>
+</head>
+<body ng-app="app">
+
+  <form ng-controller="formController">
+    <input name="email" ng-model="email" />
+    <input ng-model="password" />
+    <input type="submit" ng-click='submit()' />
+  </form>
+
+</body>
+</html>
+ -->
